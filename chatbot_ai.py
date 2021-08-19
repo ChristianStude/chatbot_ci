@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import silence_tensorflow.auto
 import pickle
+import silence_tensorflow.auto
+import random
+import json
 import numpy
 import tflearn
 import tensorflow
-import random
-import json
 from nltk.stem.lancaster import LancasterStemmer
 from nltk.tokenize import word_tokenize
 
