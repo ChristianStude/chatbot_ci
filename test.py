@@ -1,7 +1,6 @@
 import unittest
 from chatbot_ai import Chatbot
 
-
 class TestChatBot(unittest.TestCase):
     def test_intelligent_answers(self):
         """Test der intelligenten Antworten"""
@@ -20,7 +19,5 @@ class TestChatBot(unittest.TestCase):
                     self.__rightResponse = self.__reaktionen[word]
         self.assertEqual(self.__response, self.__rightResponse)
 
-
 if __name__ == '__main__':
     unittest.main()
-    
