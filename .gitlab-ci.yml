@@ -5,13 +5,10 @@ before_script:
   - python3 -m venv $CI_BUILDS_DIR/venv
   - export PATH="$CI_BUILDS_DIR/venv/bin:$PATH"
   - pip3 install -r requirements.txt
- 
+
 stages:
   - Linting
-
-test:
-  script:
-    - python3 -m unittest
+  - Unittest
 
 mypy:
   stage: Linting
@@ -28,13 +25,21 @@ flake8:
     - ubuntu
     - linux
   script:
-    - flake8 --max-line-length=120 --ignore=F401,C0103 *.py
+    - flake8 --max-line-length=120 --ignore=F401 *.py
 
 pylint:
   stage: Linting
   allow_failure: true
   script:
     - pylint -d C0301,C0103 *.py
+  tags:
+    - ubuntu
+    - linux
+
+unittest:
+  stage: Unittest
+  script:
+    - python3 -m unittest
   tags:
     - ubuntu
     - linux
