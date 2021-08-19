@@ -1,28 +1,25 @@
 import unittest
-import main
+from chatbot_ai import Chatbot
 
-# loading settings from .env file in root of project directory
-from dotenv import load_dotenv
-load_dotenv()
 
-class grafanaTests(unittest.TestCase):
-    """Tests for GeekTechStuff Grafana API Python"""
+class TestChatBot(unittest.TestCase):
+    def test_intelligent_answers(self):
+        """Test der intelligenten Antworten"""
+        self.__zufallsantworten = ["Oh wirklich...", "Interessant", "Das kann man so sehen.", "Ich verstehe..."]
+        self.__reaktionen = {"hallo": "aber hallo",
+                    "geht": "Was verstehst Du darunter",
+                    "schmeckt": "Ich habe keinen Geschmackssinn"}
+        __data = ["hallo du", "geht es dir gut", "schmeckt die Suppe"]
+        __bot = Chatbot(self.__reaktionen, self.__zufallsantworten)
+        for sentence in __data:
+            __bot.set_Message(sentence)
+            self.__response = __bot.get_response()
+            __words = sentence.split()
+            for word in __words:
+                if word in self.__reaktionen:
+                    self.__rightResponse = self.__reaktionen[word]
+        self.assertEqual(self.__response, self.__rightResponse)
 
-    def test_admin_name_is_string(self):
-        admin_username = main.get_username()
-        self.assertIs(type(admin_username),str)
-    
-    def test_admin_password_is_string(self):
-        admin_password = main.get_password()
-        self.assertIs(type(admin_password),str)
-    
-    def test_grafana_url_is_string(self):
-        grafana_url = main.get_url()
-        self.assertIs(type(grafana_url),str)
-    
-    def test_grafana_admin_url_is_string(self):
-        admin_url = main.create_url()
-        self.assertIs(type(admin_url),str)
-    
+
 if __name__ == '__main__':
     unittest.main()
