@@ -1,6 +1,7 @@
 import unittest
 from chatbot_ai import Chatbot
 
+
 class TestChatBot(unittest.TestCase):
     def test_intelligent_answers(self):
         """Test der intelligenten Antworten"""
