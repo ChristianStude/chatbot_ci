@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 import pickle
-import silence_tensorflow.auto
 import random
 import json
+import silence_tensorflow.auto
 import numpy
 import tflearn
 import tensorflow
