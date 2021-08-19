@@ -24,7 +24,7 @@ flake8:
     - ubuntu
     - linux
   script:
-    - flake8 --max-line-length=120 --ignore=F401,C103 *.py
+    - flake8 --max-line-length=120 --ignore=F401,C0103 *.py
 
 pylint:
   stage: Linting
